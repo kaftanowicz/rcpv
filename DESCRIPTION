@@ -1,0 +1,16 @@
+Package: rcpv
+Type: Package
+Title: Conversion of common procurement vocabulary (CPV) codes
+Version: 0.1
+Date: 2018-12-18
+Author: Michał Kaftanowicz
+Maintainer: Michał Kaftanowicz <michal@kaftanowicz.com>
+Description: The main function exported by this package is describe_cpv, which repairs given CPV codes if they are broken, classifies them at selected level of aggregation and returns their description in chosen language, shortened to desired number of characters.
+License: MIT
+LazyData: true
+Imports: logging, data.table, stringi
+Suggests:
+    readxl,
+    testthat
+Encoding: UTF-8
+RoxygenNote: 6.1.0

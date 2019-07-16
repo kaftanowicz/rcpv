@@ -40,10 +40,10 @@ cpv <- c("45212212-5", "34962220-6", "15961100-3")
 describe_cpv(cpv)
 describe_cpv(cpv, class_level = 5)
 describe_cpv(cpv, class_level = 4)
-describe_cpv(cpv, class_level = 4, max_nchar = 70)
 describe_cpv(cpv, class_level = 3)
 describe_cpv(cpv, class_level = 2)
 describe_cpv(cpv, class_level = 1)
+describe_cpv(cpv, class_level = 1, max_nchar = 30)
 
 describe_cpv(cpv, lang = "DE")
 ```
@@ -53,6 +53,7 @@ Several of the functions called inside `describe_cpv` - `is_correct_cpv`, `corre
 cpv <- c("45212212-5", "45212212  - 5", "452122125", "45.21.22.12.5")
 
 is_correct_cpv(cpv)
+
 correct_cpv(cpv)
 ```
 

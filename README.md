@@ -40,10 +40,6 @@ describe_cpv(cpv, class_level = 4)
 #> [1] "Construction work for buildings relating to leisure, sports, culture, lodging and restaurants"
 #> [2] "Air-traffic control equipment"                                                                
 #> [3] "Beer"
-describe_cpv(cpv, class_level = 4, max_nchar = 70)
-#> [1] "Construction work for buildings relating to leisure, sports..."
-#> [2] "Air-traffic control equipment"                                 
-#> [3] "Beer"
 describe_cpv(cpv, class_level = 3)
 #> [1] "Building construction work" "Airport equipment"         
 #> [3] "Malt beer"
@@ -55,6 +51,9 @@ describe_cpv(cpv, class_level = 1)
 #> [1] "Construction work"                                           
 #> [2] "Transport equipment and auxiliary products to transportation"
 #> [3] "Food, beverages, tobacco and related products"
+describe_cpv(cpv, class_level = 1, max_nchar = 30)
+#> [1] "Construction work"           "Transport equipment..."     
+#> [3] "Food, beverages, tobacco..."
 
 describe_cpv(cpv, lang = "DE")
 #> [1] "Bauarbeiten für Schwimmbäder" "Flugsicherungssysteme"       
@@ -68,6 +67,7 @@ cpv <- c("45212212-5", "45212212  - 5", "452122125", "45.21.22.12.5")
 
 is_correct_cpv(cpv)
 #> [1]  TRUE FALSE FALSE FALSE
+
 correct_cpv(cpv)
 #> [1] "45212212" "45212212" "45212212" "45212212"
 ```

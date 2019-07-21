@@ -6,4 +6,5 @@
 
 #' @import logging
 #' @import data.table
-NULL
+#' @import utils
+utils::globalVariables(c("cpv_codes", "corr_codes"))

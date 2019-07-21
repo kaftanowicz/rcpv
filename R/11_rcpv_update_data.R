@@ -10,13 +10,15 @@
 #'
 #' @keywords internal
 #'
+#' @import utils
+#' @import data.table
 
-update_data <- function(cpv_url = "https://simap.ted.europa.eu/documents/10184/36234/cpv_2008_xls.zip",
-                        corr_url = "http://simap.ted.europa.eu/documents/10184/36234/Correspondance_2003-2007_en.xlsx",
-                        package_path = "packages/rcpv"
-) {
+update_data <- function(cpv_url = paste0("https://simap.ted.europa.eu/documents/10184/36234/",
+                                         "cpv_2008_xls.zip"),
+                        corr_url = paste0("http://simap.ted.europa.eu/documents/10184/36234/",
+                                          "Correspondance_2003-2007_en.xlsx"),
+                        package_path = "packages/rcpv") {
   # Download fresh data from the web and save to a temporary file
-
   temp_dir <- tempdir()
   cpv_fpath <- file.path(temp_dir, "cpv.zip")
   corr_codes_fpath <- file.path(temp_dir, "corr_codes.xlsx")
@@ -35,7 +37,17 @@ update_data <- function(cpv_url = "https://simap.ted.europa.eu/documents/10184/3
   # corr_codesespondence data for different ontologies (2003 vs 2007)
   corr_codes <- corr_codes[, c(1, 3)]
   colnames(corr_codes) <- c("CODE_2003", "CODE_2007")
-  corr_codes <- na.omit(corr_codes)
+  corr_codes <- data.table::na.omit(corr_codes)
+
+  # Pre-defining data table column names as variables
+  # to avoid 'no visible binding for global variable'
+  # note from devtools::check()
+  CODE <- NULL
+  CODE_2003 <- NULL
+  CODE_2007 <- NULL
+  CODE_SHORT <- NULL
+  CODE_SHORT_2003 <- NULL
+  CODE_SHORT_2007 <- NULL
 
   # Shortening codes
   cpv_codes[, CODE_SHORT := shorten_cpv(CODE)]
@@ -49,6 +61,10 @@ update_data <- function(cpv_url = "https://simap.ted.europa.eu/documents/10184/3
                                corr_codes[, c("CODE_SHORT_2003", "CODE_SHORT_2007")]))
 
   # Save as R objects (data frames)
+
+
+  #usethis::use_data(x, mtcars, internal = TRUE)
+
   save(cpv_codes, file = file.path(package_path, "data", "cpv_codes.rda"))
   save(sup_codes, file = file.path(package_path, "data", "sup_codes.rda"))
   save(corr_codes, file = file.path(package_path, "data", "corr_codes.rda"))

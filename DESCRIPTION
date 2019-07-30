@@ -9,6 +9,7 @@ Description: The main function exported by this package is describe_cpv, which r
 License: MIT + file LICENSE
 LazyData: true
 Imports: logging, data.table, stringi
-Suggests: readxl, utils, testthat
+Suggests: readxl, testthat, usethis, utils
+Depends: R (>= 2.10)
 Encoding: UTF-8
 RoxygenNote: 6.1.0

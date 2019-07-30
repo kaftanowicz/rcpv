@@ -7,4 +7,4 @@
 #' @import logging
 #' @import data.table
 #' @import utils
-utils::globalVariables(c("cpv_codes", "corr_codes"))
+utils::globalVariables(c("cpv_codes", "sup_codes", "corr_codes"))

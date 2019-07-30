@@ -13,6 +13,17 @@ is_correct_cpv <- function(code) {
     shorten_cpv(code) %in% cpv_codes[["CODE_SHORT"]]
 }
 
+#' Shortens CPV code, i.e. drops the dash "-" and check digit that follows it.
+#'
+#' @param code vector of CPV codes (character)
+#' @return vector of shortened CPV codes (character)
+#'
+#' @export
+#'
+shorten_cpv <- function(code) {
+  gsub("\\-.*$", "", code)
+}
+
 #' Description of a CPV codes
 #'
 #' Tries to correct malformed ones. Allows for classification.

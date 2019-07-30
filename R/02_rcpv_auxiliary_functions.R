@@ -20,25 +20,12 @@ is_2007_cpv <- function(code) {
   code %in% setdiff(corr_codes[["CODE_2007"]], corr_codes[["CODE_2003"]])
 }
 
-
-#' Shortens CPV code, i.e. drops the dash "-" and check digit that follows it.
-#'
-#' @param code vector of CPV codes (character)
-#' @return vector of shortened CPV codes (character)
-#'
-#' @keywords internal
-#'
-shorten_cpv <- function(code) {
-  gsub("\\-.*$", "", code)
-}
-
-
 #' Returns a vector of 2-letter codes of the languages in which CPV codes' descriptions are available.
 #'
 #' @return invisible(NULL)
 #'
 #' @keywords internal
-#'
+
 lang_available <- function() {
   return(sort(setdiff(colnames(cpv_codes),
                  c("CODE", "CODE_SHORT"))))

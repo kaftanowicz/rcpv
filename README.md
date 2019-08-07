@@ -60,7 +60,7 @@ describe_cpv(cpv, lang = "DE")
 #> [3] "Lagerbier"
 ```
 
-Several of the functions called inside `describe_cpv` - `is_correct_cpv`, `correct_cpv`, `classify_cpv`, `convert_cpv`, `shorten_desc` - are available to the user on their own.
+Several of the functions called inside `describe_cpv` - `is_correct_cpv`, `correct_cpv`, `classify_cpv`, `convert_cpv`, `shorten_cpv`, `shorten_desc` - are available to the user on their own.
 
 ``` r
 cpv <- c("45212212-5", "45212212  - 5", "452122125", "45.21.22.12.5")

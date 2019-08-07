@@ -2,3 +2,6 @@
 ^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+cran_submission
+data-raw
+workspace

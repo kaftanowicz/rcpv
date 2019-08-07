@@ -48,7 +48,7 @@ describe_cpv(cpv, class_level = 1, max_nchar = 30)
 describe_cpv(cpv, lang = "DE")
 ```
 
-Several of the functions called inside `describe_cpv` - `is_correct_cpv`, `correct_cpv`, `classify_cpv`, `convert_cpv`, `shorten_desc` -  are available to the user on their own.
+Several of the functions called inside `describe_cpv` - `is_correct_cpv`, `correct_cpv`, `classify_cpv`, `convert_cpv`, `shorten_cpv`, `shorten_desc` -  are available to the user on their own.
 ```{r example_2}
 cpv <- c("45212212-5", "45212212  - 5", "452122125", "45.21.22.12.5")
 
